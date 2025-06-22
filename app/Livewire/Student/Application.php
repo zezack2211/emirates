@@ -78,9 +78,9 @@ class Application extends Component
             'relative_phone' => $this->relative_phone,
         ]);
 
-        $photoPath = $this->photo->store('documents', 'public');
-        $certificatePath = $this->certificate->store('documents', 'public');
-        $idCardPath = $this->identity_card->store('documents', 'public');
+        $photoPath = $this->photo->store('images', 'public');
+        $certificatePath = $this->certificate->store('images', 'public');
+        $idCardPath = $this->identity_card->store('images', 'public');
 
         Documents::create([
             'application_id' => $application->id,
