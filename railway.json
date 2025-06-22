@@ -6,7 +6,10 @@
     },
     "commands": [
       "composer install --no-dev --optimize-autoloader",
-      "php artisan storage:link"
+        "rm -f public/storage",
+      "php artisan storage:link",
+
+
     ]
   },
   "deploy": {
