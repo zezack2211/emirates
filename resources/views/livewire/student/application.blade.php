@@ -9,7 +9,7 @@
     @else
     <form wire:submit.prevent="submit" enctype="multipart/form-data" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
         <!-- Full Name -->
-        @scrf
+        @csrf
         <flux:input label="Full Name" type="text" wire:model.defer="name" />
         @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
 
