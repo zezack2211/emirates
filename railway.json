@@ -3,7 +3,11 @@
     "use": "@railway/php",
     "variables": {
       "NIXPACKS_PKGS": "php php-common php-curl php-mbstring php-mysql php-xml php-zip php-gd php-fpm nginx"
-    }
+    },
+    "commands": [
+      "composer install --no-dev --optimize-autoloader",
+      "php artisan storage:link"
+    ]
   },
   "deploy": {
     "startCommand": "php artisan serve --host=0.0.0.0 --port=${PORT}"
