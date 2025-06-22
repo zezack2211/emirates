@@ -7,7 +7,7 @@
     "commands": [
       "composer install --no-dev --optimize-autoloader",
         "rm -f public/storage",
-      "php artisan storage:link",
+      "php artisan storage:link"
 
 
     ]
