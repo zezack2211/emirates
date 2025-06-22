@@ -79,7 +79,7 @@ class Application extends Component
         ]);
 
         $photoPath = $this->photo->store( 'public');
-$certificatePath = $this->certificate->store(' 'public');
+$certificatePath = $this->certificate->store( 'public');
 $idCardPath = $this->identity_card->store(' 'public');
 
 Documents::create([
