@@ -5,16 +5,16 @@
       "NIXPACKS_PKGS": "php php-common php-curl php-mbstring php-mysql php-xml php-zip php-gd php-fpm nginx"
     },
     "commands": [
-  "composer install --no-dev --optimize-autoloader",
-  "npm install && npm run build",
-  "mkdir -p storage/app/public bootstrap/cache",      
-  "chmod -R 775 storage bootstrap/cache",
-  "php artisan optimize:clear",
-  "rm -f public/storage",
-  "php artisan storage:link"
-]
-
-
+      "composer install --no-dev --optimize-autoloader",
+      "npm install && npm run production",
+      "mkdir -p storage/app/public storage/framework/{cache,sessions,testing,views} bootstrap/cache",
+      "chmod -R 775 storage bootstrap/cache",
+      "php artisan optimize:clear",
+      "php artisan storage:link",
+      "php artisan config:cache",
+      "php artisan route:cache",
+      "php artisan view:cache"
+    ]
   },
   "deploy": {
     "startCommand": "php artisan serve --host=0.0.0.0 --port=${PORT}"
