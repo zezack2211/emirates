@@ -61,9 +61,9 @@ class Application extends Component
             'program_id' => 'required|exists:programs,id',
             'realtive_name' => 'required|string',
             'relative_phone' => 'required|string',
-            'photo' => 'required|image|max:2048',
-            'certificate' => 'required|image|max:2048',
-            'identity_card' => 'required|image|max:2048',
+            'photo' => 'required|pdf,jpg,jpeg,png|max:2048',
+            'certificate' => 'required|pdf,jpg,jpeg,png|max:2048',
+            'identity_card' => 'required|pdf,jpg,jpeg,png|max:2048',
         ]);
 
         $application = Applications::create([
