@@ -1,22 +1,28 @@
 {
-  "build": {
-    "use": "@railway/php",
-    "variables": {
-      "NIXPACKS_PKGS": "php php-common php-curl php-mbstring php-mysql php-xml php-zip php-gd php-fpm nginx"
-    },
-    "commands": [
-      "composer install --no-dev --optimize-autoloader",
-      "npm install && npm run build",
-      "mkdir -p storage/app/public storage/framework/{cache,sessions,testing,views} bootstrap/cache",
-      "chmod -R 775 storage bootstrap/cache",
-      "php artisan config:clear",
-      "php artisan optimize:clear",
-      "php artisan config:cache",
-      "rm -f public/storage",
-      "php artisan storage:link"
-    ]
-  },
-  "deploy": {
-    "startCommand": "start-nginx"
-  }
+  "build": {
+    "use": "@railway/php",
+    "variables": {
+      "NIXPACKS_PKGS": "php php-common php-curl php-mbstring php-mysql php-pgsql php-sqlite3 php-xml php-zip php-gd php-fpm php-opcache php-bcmath php-redis nginx supervisor"
+    },
+    "commands": [
+      "composer install --no-dev --optimize-autoloader",
+      "npm install && npm run build",
+      "mkdir -p storage/app/public storage/framework/{cache,sessions,testing,views} bootstrap/cache",
+      "chmod -R 775 storage bootstrap/cache",
+      "php artisan config:clear",
+      "php artisan view:clear",
+      "php artisan route:clear",
+      "php artisan optimize:clear",
+      "php artisan config:cache",
+      "php artisan route:cache",
+      "php artisan view:cache",
+      "rm -f public/storage",
+      "php artisan storage:link",
+      "php artisan event:cache",
+      "if [ \"$RAILWAY_ENVIRONMENT\" = \"production\" ]; then php artisan migrate --force; fi"
+    ]
+  },
+  "deploy": {
+    "startCommand": "supervisord -c /etc/supervisor/supervisord.conf"
+  }
 }
