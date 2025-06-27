@@ -47,15 +47,15 @@
         @error('relative_phone') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
 
         <!-- Certificate Upload -->
-        <flux:input label="Certificate" type="file" wire:model="certificate" />
+        <flux:input label="Certificate" type="file" name="certificate" wire:model="certificate" />
         @error('certificate') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
 
         <!-- ID Card Upload -->
-        <flux:input label="ID Card" type="file" wire:model="identity_card" />
+        <flux:input label="ID Card" type="file" name="identity_card" wire:model="identity_card" />
         @error('identity_card') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
 
         <!-- Personal Photo Upload -->
-        <flux:input label="Personal Photo" type="file" wire:model="photo" />
+        <flux:input label="Personal Photo" name="photo" type="file" wire:model="photo" />
         @error('photo') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
 
         <!-- Submit Button -->
