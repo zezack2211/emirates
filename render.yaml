@@ -1,7 +1,8 @@
 services:
   - type: web
-    name: emirates-app
+    name: emirates-college
     env: php
+    region: oregon
     buildCommand: >
       composer install --no-dev --optimize-autoloader &&
       npm install &&
@@ -15,17 +16,47 @@ services:
       - key: APP_ENV
         value: production
       - key: APP_KEY
-        value: base64:REPLACE_THIS_WITH_REAL_KEY
+        value: base64:ESO2NjZbQS7q+lfrHLnaMKZ5RhLRvwLaNUL2I51fOF4=
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        value: https://emirates-yk5o.onrender.com
+      - key: ASSET_URL
+        value: https://emirates-yk5o.onrender.com
+      - key: MIX_ASSET_URL
+        value: https://emirates-yk5o.onrender.com
+      - key: LIVEWIRE_ASSET_URL
+        value: https://emirates-yk5o.onrender.com
       - key: DB_CONNECTION
         value: mysql
       - key: DB_HOST
-        value: your-db-host
+        value: shuttle.proxy.rlwy.net
       - key: DB_PORT
-        value: 3306
+        value: "43879"
       - key: DB_DATABASE
-        value: your-db-name
+        value: railway
       - key: DB_USERNAME
-        value: your-db-user
+        value: root
       - key: DB_PASSWORD
-        value: your-db-password
+        value: wLhSppTGzsyhfmzkyjYzxrpHclRFWROC
+      - key: SESSION_DRIVER
+        value: database
+      - key: SESSION_LIFETIME
+        value: "120"
+      - key: SESSION_ENCRYPT
+        value: "true"
+      - key: FILESYSTEM_DISK
+        value: public
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: MAIL_MAILER
+        value: log
+      - key: MAIL_FROM_ADDRESS
+        value: hello@example.com
+      - key: MAIL_FROM_NAME
+        value: Emirates College
+      - key: VITE_APP_NAME
+        value: Emirates College
         
